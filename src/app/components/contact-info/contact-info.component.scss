@@ -1,0 +1,17 @@
+.mat-form-field:nth-child(6) {
+  grid-column-end: -1;
+  grid-column-start: 2;
+}
+
+@media (min-width: 712px) and (max-width: 1439px) {
+  .mat-form-field:nth-child(6) {
+    grid-column-end: -1;
+    grid-column-start: 1;
+  }
+}
+@media (max-width: 711px) {
+  .mat-form-field:nth-child(6) {
+    grid-column-end: unset;
+    grid-column-start: unset;
+  }
+}

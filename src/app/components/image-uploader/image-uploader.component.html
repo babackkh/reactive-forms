@@ -1,0 +1,12 @@
+<div
+  class="uploadfilecontainer"
+  (click)="fileInput.click()"
+  appDragDrop
+  (onFileDropped)="uploadFile($event)"
+>
+  <div class="box-placeholder">
+    <mat-icon>add</mat-icon>
+    <div class="mat-title">.برای آپلود فایل به اینجا درگ یا کلیک کنید</div>
+  </div>
+  <input hidden type="file" #fileInput (change)="uploadFile($event)" />
+</div>

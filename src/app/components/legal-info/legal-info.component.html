@@ -1,0 +1,76 @@
+<mat-card>
+  <form [formGroup]="legalInfoForm" *ngIf="companyTypes.length > 0">
+    <div class="mat-headline">اطلاعات حقوقی</div>
+    <div class="fields-wrapper">
+      <mat-form-field appearance="outline">
+        <mat-label>نام شرکت</mat-label>
+        <input matInput formControlName="companyName" />
+        <mat-error>
+          <span *ngIf="formControl.companyName.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>نوع شرکت</mat-label>
+        <mat-select formControlName="companyType">
+          <mat-option
+            *ngFor="let companyType of companyTypes"
+            [value]="companyType.Value"
+            >{{ companyType.Text }}</mat-option
+          >
+        </mat-select>
+        <mat-error>
+          <span *ngIf="formControl.companyType.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>شماره ثبت</mat-label>
+        <input
+          matInput
+          type="text"
+          appNumeric
+          formControlName="registerationNumber"
+        />
+        <mat-hint
+          class="ok-status"
+          align="start"
+          *ngIf="formControl.registerationNumber.valid"
+          >شماره ثبت صحیح است.</mat-hint
+        >
+        <mat-hint
+          class="ok-status"
+          align="end"
+          *ngIf="formControl.registerationNumber.valid"
+          ><mat-icon>check</mat-icon></mat-hint
+        >
+        <mat-error>
+          <span *ngIf="!formControl.registerationNumber.errors?.required">{{
+            errorMessages.regNumExists
+          }}</span>
+          <span *ngIf="formControl.registerationNumber.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>تاریخ ثبت</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="مثال: 11-06-1399"
+          formControlName="registerationDate"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error>
+          <span *ngIf="formControl.registerationDate.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-card>

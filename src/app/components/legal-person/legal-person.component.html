@@ -1,0 +1,46 @@
+<app-spinner *ngIf="isLoading"></app-spinner>
+<div class="legal-person-wrapper" *ngIf="!isLoading">
+  <form [formGroup]="legalPersonForm">
+    <app-legal-info
+      [companyTypes]="companyTypes"
+      (formReady)="addFormControl('legalInfo', $event)"
+    ></app-legal-info>
+    <app-contact-info
+      (formReady)="addFormControl('contactInfo', $event)"
+    ></app-contact-info>
+    <div formGroupName="document">
+      <mat-toolbar class="fields-wrapper">
+        <app-image-uploader
+          (imageUploaded)="getUploadedImage($event)"
+          *ngIf="imageControl.invalid"
+        ></app-image-uploader>
+        <div
+          class="image-preview"
+          *ngIf="imageControl.valid"
+          [ngStyle]="{ 'background-image': 'url(' + imageURL + ')' }"
+        >
+          <div class="close-button">
+            <button type="button" mat-icon-button (click)="closeImagePreview()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div class="document-info">
+          <app-mime-type-error
+            *ngIf="imageControl.invalid && imageControl.errors?.invalidMimeType"
+          ></app-mime-type-error>
+          <app-upload-success *ngIf="imageControl.valid"></app-upload-success>
+          <app-file-size-error
+            *ngIf="imageControl.invalid && imageControl.errors?.maximumFilesize"
+          ></app-file-size-error>
+          <mat-form-field appearance="outline">
+            <mat-label>لطفا انتخاب کنید</mat-label>
+            <mat-select formControlName="documentType">
+              <mat-option value="1">کارت ملی - حداکثر ۲ مگابایت</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </mat-toolbar>
+    </div>
+  </form>
+</div>

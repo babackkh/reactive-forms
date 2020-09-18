@@ -1,0 +1,27 @@
+<main [@routeAnimations]="prepareRoute(outlet)" style="height: 100vh">
+  <mat-toolbar class="radio-buttons">
+    <form [formGroup]="mainForm">
+      <div class="mat-headline">شخصیت :</div>
+      <mat-radio-group
+        aria-label="Select a Person Type"
+        formControlName="personType"
+        (change)="onPersonChange($event)"
+      >
+        <mat-radio-button value="natural">حقیقی</mat-radio-button>
+        <mat-radio-button value="legal">حقوقی</mat-radio-button>
+      </mat-radio-group>
+    </form>
+  </mat-toolbar>
+  <router-outlet #outlet="outlet"></router-outlet>
+  <mat-toolbar class="submit">
+    <div class="spacer"></div>
+    <button
+      mat-raised-button
+      type="button"
+      color="primary"
+      (click)="saveData()"
+    >
+      ثبت اطلاعات در کنسول
+    </button>
+  </mat-toolbar>
+</main>

@@ -1,0 +1,83 @@
+<mat-card>
+  <form [formGroup]="contactInfoForm">
+    <div class="mat-headline">اطلاعات تماس</div>
+    <div class="fields-wrapper">
+      <mat-form-field appearance="outline">
+        <mat-label>کد پستی</mat-label>
+        <input matInput appNumeric formControlName="postalCode" />
+        <mat-error>
+          <span *ngIf="!formControl.postalCode.errors?.required">{{
+            errorMessages.invalidPostalCode
+          }}</span>
+          <span *ngIf="formControl.postalCode.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>تلفن</mat-label>
+        <input matInput appNumeric formControlName="phoneNumber" />
+        <mat-error>
+          <span *ngIf="!formControl.phoneNumber.errors?.required">{{
+            errorMessages.invalidPhoneNumber
+          }}</span>
+          <span *ngIf="formControl.phoneNumber.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>شماره همراه ۱</mat-label>
+        <input matInput appNumeric formControlName="mobileNumber1" />
+        <span matSuffix>98+</span>
+        <mat-error>
+          <span *ngIf="!formControl.mobileNumber1.errors?.required">{{
+            errorMessages.invalidMobile
+          }}</span>
+          <span *ngIf="formControl.mobileNumber1.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>شماره همراه ۲</mat-label>
+        <input matInput appNumeric formControlName="mobileNumber2" />
+        <span matSuffix>98+</span>
+        <mat-error>
+          <span *ngIf="!formControl.mobileNumber2.errors?.required">{{
+            errorMessages.invalidMobile
+          }}</span>
+          <span *ngIf="formControl.mobileNumber2.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>ایمیل</mat-label>
+        <input matInput formControlName="email" />
+        <mat-error>
+          <span *ngIf="!formControl.email.errors?.required">{{
+            errorMessages.invalidEmail
+          }}</span>
+          <span *ngIf="formControl.email.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>آدرس</mat-label>
+        <input matInput formControlName="address" />
+        <mat-error>
+          <span *ngIf="formControl.address.errors?.required">{{
+            errorMessages.required
+          }}</span>
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-card>

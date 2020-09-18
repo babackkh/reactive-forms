@@ -1,0 +1,19 @@
+@import '../../../mixins';
+
+.radio-buttons {
+  flex-direction: column;
+  align-items: flex-start;
+  .mat-radio-button {
+    margin-left: 1rem;
+
+    ::ng-deep .mat-radio-container {
+      @include radio-button-adjust;
+      .mat-radio-outer-circle {
+        @include radio-button-adjust;
+      }
+      .mat-radio-inner-circle {
+        @include radio-button-adjust;
+      }
+    }
+  }
+}

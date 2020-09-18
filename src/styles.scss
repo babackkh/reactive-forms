@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+///// Syles Custom Resets /////
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+* {
+  font-family: 'Markazi Text', serif;
+}
+.mat-icon {
+  font-family: 'Material Icons' !important;
+}
+
+.mat-card {
+  box-shadow: none !important;
+  .fields-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    .mat-form-field {
+      margin-left: 1rem;
+      input {
+        font-size: 1.3rem !important;
+      }
+      .mat-form-field-suffix {
+        top: 0.05em !important;
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+.mat-toolbar {
+  background: transparent;
+  padding: 1rem 1rem !important;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+///// Flex Box Width Spacer /////
+.spacer {
+  flex: 1 1 auto;
+}

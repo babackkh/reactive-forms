@@ -1,0 +1,36 @@
+$greyish: #808080;
+
+.uploadfilecontainer {
+  height: 100%;
+  width: 100%;
+  border: 3px dashed $greyish;
+  border-radius: 7px;
+  transition: all 0.3s ease-out;
+  padding: 0 0.4rem;
+  .box-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .mat-icon {
+      width: 4rem;
+      height: 4rem;
+      color: $greyish;
+    }
+    .material-icons {
+      font-size: 4rem;
+    }
+    .mat-title {
+      color: $greyish;
+      font-weight: 200;
+    }
+  }
+}
+
+.uploadfilecontainer:hover {
+  cursor: pointer;
+  background-color: #d9d9d9 !important;
+  opacity: 0.4;
+  transition: all 0.3s ease-in;
+}
